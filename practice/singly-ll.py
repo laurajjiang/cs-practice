@@ -30,3 +30,32 @@ class LinkedList(object):
             current = current.get_next()
         return size
 
+    def search_node(self, data):
+        current = self.head
+        found = False
+        while current and found is False:
+            if current.get_node() == data:
+                found = True
+            else:
+                current = current.get_next()
+        if current is None:
+            raise ValueError("data does not exist")
+        return current
+
+    def delete_node(self, data):
+        current = self.head
+        previous = None
+        found = False
+        while current and found is False:
+            if current.get_data() == data:
+                found = True
+            else:
+                previous = current
+                current = current.get_next()
+        if current is None:
+            raise ValueError("data does not exist")
+        if previous is None:
+            self.head = current.get_next()
+        else:
+            previous.set_next_node(current.get_next())
+
