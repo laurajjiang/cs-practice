@@ -18,7 +18,7 @@ class Solution:
         return self.isSymmetricHelperFx(root.left, root.right)
 
     def isSymmetricHelperFx(self, p, q):
-        if not (p and q):
+        if not p or not q:
             return p == q
         if p.val != q.val:
             return False
