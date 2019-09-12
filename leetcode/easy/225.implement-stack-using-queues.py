@@ -20,7 +20,7 @@ class MyStack:
         Push element x onto stack.
         """
         self.queue.append(x)
-        for _ in range(self.size):
+        for i in range(self.size):
             self.queue.append(self.queue.popleft())
         self.size += 1
 
