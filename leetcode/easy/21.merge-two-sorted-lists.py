@@ -14,21 +14,18 @@
 
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        head, merged_list = ListNode(0)
+        head = merged_list = ListNode(0)
         left, right = l1, l2
-        while left or right:
-            if left == None:
-                merged_list.next = right
-                break
-            if right == None:
-                merged_list.next = left
-                break
+        while left and right:
             if left.val < right.val:
-                merged_list.next = merged_list = ListNode(left.val)
+                merged_list.next = left
+                merged_list = merged_list.next
                 left = left.next
-            if left.val > right.val:
-                merged_list.next = merged_list = ListNode(right.val)
+            elif left.val >= right.val:
+                merged_list.next = right
+                merged_list = merged_list.next
                 right = right.next
+        merged_list.next = left or right
         return head.next
 
 
