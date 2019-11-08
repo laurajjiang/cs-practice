@@ -5,20 +5,16 @@
 #
 class Solution:
     def isValid(self, s: str) -> bool:
-        open_p = {"(", "[", "{"}
-        pairs = {("(", ")"), ("[", "]"), ("{", "}")}
-        stack = []
+        l = list()
+        dict_b = {"}": "{", ")": "(", "]": "["}
+        open_b = dict_b.values()
         for bracket in s:
-            if bracket in open_p:
-                stack.append(bracket)
+            if bracket in open_b:
+                l.append(bracket)
             else:
-                if not stack:
+                if len(l) > 0 and l[-1] == dict_b[bracket]:
+                    l.pop()
+                else:
                     return False
-                recent_bracket = stack.pop()
-                pair = (recent_bracket, bracket)
-                if pair not in pairs:
-                    return False
-        if not stack:
-            return True
-        return False
+        return len(l) == 0
 
