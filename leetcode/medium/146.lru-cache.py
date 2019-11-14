@@ -10,7 +10,7 @@ class LRUCache:
         self.cache = {}
         self.capacity = capacity
         self.next, self.prev = {}, {}
-        self.head, self.tail = "dummy_head", "dummy_tail"
+        self.head, self.tail = "dummy_head_val", "dummy_tail_val"
         self.connect(self.head, self.tail)
 
     def get(self, key: int) -> int:
