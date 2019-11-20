@@ -15,19 +15,19 @@
 
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        self.levels = []
-        self.traversal(0, root)
-        return self.levels
+        levels = []
+        self.traversal(0, root, levels)
+        return levels
 
-    def traversal(self, currLevel, root):
+    def traversal(self, currLevel, root, levels):
         if not root:
             return []
-        if len(self.levels) <= currLevel:
-            self.levels += [[root.val]]
+        if len(levels) <= currLevel:
+            levels += [[root.val]]
         else:
-            self.levels[currLevel] += [root.val]
-        self.traversal(currLevel + 1, root.left)
-        self.traversal(currLevel + 1, root.right)
+            levels[currLevel] += [root.val]
+        self.traversal(currLevel + 1, root.left, levels)
+        self.traversal(currLevel + 1, root.right, levels)
 
 
 # @lc code=end
