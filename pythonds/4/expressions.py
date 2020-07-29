@@ -25,7 +25,26 @@ def infixToPostfix(expr: str) -> str:
                 postfix.append(operatorStack.pop())
             operatorStack.push(token)
    
-def postfixToInfix(expr: str) -> str:
-    
+def postfixEval(expr: str) -> str:
+    operandStack = Stack()
+    tokens = expr.split()
 
-def evalExpression(): pass
+    for token in tokens: 
+        if token in "0123456789":
+            operandStack.push(int(token))
+        else:
+            op2 = operandStack.pop()
+            op1 = operandStack.pop()
+            res = calculate(token, op1, op2)
+            operandStack.push(res)
+    return operandStack.pop()
+
+def calculate(op: chr, op1: int, op2: int) -> int:
+    if op == '*':
+        return op1 * op2
+    elif op == '/':
+        return op1 / op2
+    elif op == '+':
+        return op1 + op2
+    elif op == '-':
+        return op1 - op2
