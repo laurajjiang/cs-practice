@@ -2,7 +2,8 @@
 Implementation of basic data structures
 """
 
-class Stack: 
+
+class Stack:
     def __init__(self):
         self.items = []
 
@@ -11,14 +12,17 @@ class Stack:
 
     def push(self, value):
         self.items.append(value)
-    
-    def peek(self): 
+
+    def peek(self):
         return self.items[len(self.items) - 1]
-    
+
     def size(self):
         return len(self.items)
-    
+
     def pop(self):
         return self.items.pop()
-    
-    
+
+
+class Queue:
+    def __init__(self):
+        self.items = []
