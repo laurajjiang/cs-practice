@@ -10,4 +10,3 @@ class Solution(object):
             arr[i] = maxSeen
             maxSeen = max(temp, maxSeen)
         return arr
-
