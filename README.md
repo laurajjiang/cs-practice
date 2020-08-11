@@ -1,3 +1,3 @@
-# Practice Questions
+# Programming Practice
 
-This is a folder containing solutions for programming questions, done for practice.
+This is a folder containing solutions for programming questions from different sources (problems sourced from Leetcode, Hackerrank, or important data structures or algorithms).
