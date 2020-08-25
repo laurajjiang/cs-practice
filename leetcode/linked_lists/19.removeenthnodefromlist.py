@@ -13,12 +13,12 @@ class Solution(object):
         curr = ListNode(-1)
         curr.next = head
         first = second = curr
-        for _ in range(1, n+1):
+        for _ in range(n):
             first = first.next
         
-        while first is not None:
+        while first and first.next:
             first = first.next
             second = second.next
         
         second.next = second.next.next
-        return dummy.next
+        return curr.next
